@@ -7,11 +7,11 @@ on:
 
 
 jobs:
-  syntax-chech:
+  syntax-check:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checout@v4
+    - uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -27,7 +27,7 @@ jobs:
       run: |
         flake8 .  > flake8_report.txt || true
 
-    - name: Upload flake8 flake8 report
+    - name: Upload flake8 report
       uses: actions/Upload-artifact@v4
       with:
         name: flake8-report
